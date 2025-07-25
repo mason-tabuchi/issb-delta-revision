@@ -1,27 +1,24 @@
-name: Build-PDF                     # ← ワークフロー名
+name: Build-PDF                   # ★ この1行目含めコピペしてください
 
 on:
   push:
-    paths: ["docs/**/*.tex"]        # docs 配下の .tex が変わったら実行
+    paths: ["docs/**/*.tex"]      # docs配下のTeXを変更したら実行
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-    # ① リポジトリ取得
-    - uses: actions/checkout@v4
 
-    # ② LaTeX ビルド
-    - name: Compile LaTeX
+    steps:
+    - uses: actions/checkout@v4   # ① チェックアウト
+
+    - name: Compile LaTeX         # ② LaTeXビルド
       uses: xu-cheng/latex-action@v3
       with:
-        root_file: docs/main.tex
+        root_file: docs/main.tex  #   ←必ず存在するパス
 
-    # ③ PDF をアーティファクト化
-    - name: Upload PDF
+    - name: Upload PDF            # ③ PDFをArtifactsへ
       uses: actions/upload-artifact@v4
       with:
         name: main-pdf
         path: docs/main.pdf
-
