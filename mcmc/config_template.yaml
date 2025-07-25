@@ -1,1 +1,24 @@
+# mcmc/config_template.yaml
+# -- Cobaya 最小構成：Planck2018 TTTEEE + BAO
+theory: camb
+
+params:
+  omega_b: { prior: {min: 0.01, max: 0.035},  latex: \Omega_b h^2 }
+  omega_cdm: { prior: {min: 0.05, max: 0.2}, latex: \Omega_c h^2 }
+  H0: { prior: {min: 50, max: 80}, latex: H_0 }
+  z_reio: { prior: {min: 5, max: 10}, latex: z_\mathrm{re} }
+  # Δモデルの自由パラメータ：例 κ0, κ1
+  kappa0: { prior: {min: -1, max: 1}, latex: \kappa_0 }
+  kappa1: { prior: {min: -1, max: 1}, latex: \kappa_1 }
+
+likelihood:
+  planck_2018_highl_plik.TTTEEE: null
+  planck_2018_lowl.SimAll: null
+  bao.sdss_dr12_consensus: null
+
+sampler:
+  mcmc:
+    max_tries: 10
+    Rminus1_stop: 0.01
+    covmat: auto
 
