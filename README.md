@@ -34,3 +34,13 @@ This project is currently focused on addressing a series of specific research qu
 3.  **Propose New Issues**: If you identify a new potential problem, an area for improvement, or a question, please open a new issue.
 
 This project represents an open inquiry into the foundations of physics, and all constructive engagement is welcome.
+---
+## License
+
+* **Code** (all *.py, *.ipynb, workflows, etc.): MIT License  
+* **Papers & Figures** (`/papers` directory): Creative Commons Attribution 4.0 International (CC-BY-4.0)
+
+Please cite the Zenodo record:  
+[![DOI](https://zenodo.org/badge/10.5281/zenodo.15852514.svg)](https://doi.org/10.5281/zenodo.15852514)
+[![DOI](https://zenodo.org/badge/10.5281/zenodo.16014430.svg)](https://doi.org/10.5281/zenodo.16014430)
+[![DOI](https://zenodo.org/badge/10.5281/zenodo.16116302.svg)](https://doi.org/10.5281/zenodo.16116302)
