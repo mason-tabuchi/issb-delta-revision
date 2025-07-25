@@ -1,14 +1,127 @@
-% docs/main.tex  --- 最小サンプル
-\documentclass{article}
-\usepackage{amsmath}
-\usepackage{hyperref}
+% ==========================================================
+% iSSB-ΔTheory – Revision Paper (LaTeX master)
+% ==========================================================
+\documentclass[11pt,a4paper]{article}
+
+% ---------- パッケージ ----------
+\usepackage[utf8]{inputenc}          % 日本語を含むUTF-8
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}                 % ベクターフォント
+\usepackage{geometry}                % 余白設定
+  \geometry{margin=25mm}
+\usepackage{hyperref}                % 目次リンク
+  \hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue}
+\usepackage{amsmath,amssymb,amsthm}  % 数式環境
+\usepackage{bm}                      % 太字ベクトル
+\usepackage{physics}                 % 物理コマンド
+\usepackage{graphicx}                % 図
+\usepackage{cite}                    % 参考文献番号をまとめる
+\usepackage{authblk}                 % 複数著者
+\usepackage{fancyhdr}                % ヘッダ/フッタ
+\usepackage{siunitx}                 % 単位
+\usepackage{enumitem}                % 箇条書きカスタム
+
+% ---------- ヘッダ/フッタ ----------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{iSSB-ΔTheory Revision Draft}
+\fancyhead[R]{\thepage}
+
+% ---------- 定理環境 ----------
+\newtheorem{definition}{定義}
+\newtheorem{theorem}{定理}
+\newtheorem{lemma}{補題}
+
+% ---------- 自作コマンド ----------
+\newcommand{\dL}{\mathcal{L}}        % ラグランジアン
+\newcommand{\Mpl}{M_{\mathrm{Pl}}}   % プランク質量
+\newcommand{\Dphi}{\Delta\!\phi}     % Δφ
+
+% ==========================================================
 \begin{document}
-\title{iSSB-ΔTheory -- Revision Log}
-\author{Mason Tabuchi \and Collaborators}
+
+\title{\bfseries iSSB-ΔTheory:\\
+Dynamic Origin of Dark Energy and Unified Field Revision}
+\author[1]{Mason Tabuchi\thanks{Corresponding author: \texttt{mason@example.com}}}
+\author[2]{ChatGPT (o3)\thanks{AI Co-author}}
+\affil[1]{Independent Researcher, Tokyo, Japan}
+\affil[2]{OpenAI}
 \date{\today}
 \maketitle
 
-\section*{Purpose}
-This file is just a smoke test for the GitHub Actions LaTeX build.
+\begin{abstract}
+We present an updated formulation of the iSSB-ΔTheory, addressing the
+main review comments regarding (i)~a fully covariant action principle,
+(ii)~loop-level renormalisation of the dynamical vacuum term~$\kappa(H)$,
+and (iii)~observational constraints from \textit{Planck} 2018 and BAO.
+This draft compiles all ten original papers (I–X) into a single, coherent
+framework suitable for peer-review submission.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+% ==========================================================
+\section{Introduction}
+\label{sec:intro}
+
+ダークエネルギーの起源を**力学的に**説明する理論として  
+iSSB-ΔTheory は\cite{Tabuchi2025_I,Tabuchi2025_X}  
+以下の 3 つの柱を持つ：
+\begin{enumerate}[label=\Roman*.]
+  \item Δ場による自己対称性破れ（iSSB）  
+  \item 非可換履歴時間 $\tau$ と情報密度
+  \item トポロジカル保存則
+\end{enumerate}
+本稿では査読者からの主要指摘に応じ、  
+\begin{itemize}
+  \item \S\ref{sec:action} で Einstein–Hilbert + Δ場の\textbf{完全作用}を提示
+  \item \S\ref{sec:loop} で $\kappa(H)$ の 1-loop 導出と数値評価
+  \item \S\ref{sec:mcmc} で MCMC による\textbf{観測フィット}
+\end{itemize}
+を順に示す。
+
+% ==========================================================
+\section{Full Covariant Action}
+\label{sec:action}
+
+作用は
+\begin{align}
+  S &= \int d^4x \,\sqrt{-g}\,\Bigl[
+        \frac{\Mpl^{2}}{2} R
+      - \frac12 g^{\mu\nu}\partial_\mu \Phi \partial_\nu \Phi
+      - V(\Phi)
+      - \frac{\xi}{2} R \Phi^2
+    \Bigr], \label{eq:action}
+\end{align}
+where $V(\Phi)=\frac{\lambda}{4}\Phi^4 + \frac{m^2}{2}\Phi^2$.
+変分より…
+% （後続で action/lagrangian.tex から \input する方法も可）
+
+% ==========================================================
+\section{One-loop Effective Vacuum Term}
+\label{sec:loop}
+% 簡潔な概要。詳細は loop/notebook.ipynb 参照。
+\input{../loop/summary.tex} % 無ければ後で削除
+
+% ==========================================================
+\section{Observational Constraints}
+\label{sec:mcmc}
+
+Cobaya 設定ファイル \texttt{mcmc/config\_planck.yaml} を用い、
+Planck2018 + BAO で
+\[
+  w(z) = w_0 + w_a (1-a)
+\]
+のパラメータ空間を探索した結果…
+
+% ==========================================================
+\section{Conclusion}
+本稿では…
+
+% ==========================================================
+\bibliographystyle{unsrt}
+% ----- 参考文献ファイルがまだ無い場合はコメントアウトしておいても PDF 出力可 -----
+% \bibliography{ref}
 
 \end{document}
