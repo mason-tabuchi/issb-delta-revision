@@ -1,41 +1,27 @@
-name: Build-PDF       # ← これを 1 行目に追加
-# This is a basic workflow to help you get started with Action
+name: Build-PDF          # サイドバーに表示されるワークフロー名
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    paths: ["docs/**/*.tex"]      # docs 以下の .tex を変更したら自動実行
+  workflow_dispatch:              # Actions 画面から手動実行も可能
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+    # ① リポジトリをチェックアウト
+    - uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+    # ② LaTeX をビルド（xu-cheng/latex-action は latexmk を内部で呼ぶ）
+    - name: Compile LaTeX          # ← ここが “Compile LaTeX” ステップ
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: docs/main.tex   # メインの TeX ファイル
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          
-      - name: Upload PDF
-        uses: actions/upload-artifact@v4
-        with:
-          name: main-pdf
-          path: docs/main.pdf
+    # ③ 生成された PDF を Artifacts にアップロード
+    - name: Upload PDF
+      uses: actions/upload-artifact@v4
+      with:
+        name: main-pdf            # ダウンロード時に表示される名前
+        path: docs/main.pdf       # 出力先パス（↑で指定した root の .pdf）
