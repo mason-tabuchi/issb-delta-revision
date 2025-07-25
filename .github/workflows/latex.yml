@@ -1,27 +1,27 @@
-name: Build-PDF          # サイドバーに表示されるワークフロー名
+name: Build-PDF                     # ← ワークフロー名
 
 on:
   push:
-    paths: ["docs/**/*.tex"]      # docs 以下の .tex を変更したら自動実行
-  workflow_dispatch:              # Actions 画面から手動実行も可能
+    paths: ["docs/**/*.tex"]        # docs 配下の .tex が変わったら実行
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    # ① リポジトリをチェックアウト
+    # ① リポジトリ取得
     - uses: actions/checkout@v4
 
-    # ② LaTeX をビルド（xu-cheng/latex-action は latexmk を内部で呼ぶ）
-    - name: Compile LaTeX          # ← ここが “Compile LaTeX” ステップ
+    # ② LaTeX ビルド
+    - name: Compile LaTeX
       uses: xu-cheng/latex-action@v3
       with:
-        root_file: docs/main.tex   # メインの TeX ファイル
+        root_file: docs/main.tex
 
-    # ③ 生成された PDF を Artifacts にアップロード
+    # ③ PDF をアーティファクト化
     - name: Upload PDF
       uses: actions/upload-artifact@v4
       with:
-        name: main-pdf            # ダウンロード時に表示される名前
-        path: docs/main.pdf       # 出力先パス（↑で指定した root の .pdf）
+        name: main-pdf
+        path: docs/main.pdf
+
