@@ -44,5 +44,3 @@ Please cite the Zenodo record:
 [![DOI](https://zenodo.org/badge/10.5281/zenodo.15852514.svg)](https://doi.org/10.5281/zenodo.15852514)
 [![DOI](https://zenodo.org/badge/10.5281/zenodo.16014430.svg)](https://doi.org/10.5281/zenodo.16014430)
 [![DOI](https://zenodo.org/badge/10.5281/zenodo.16116302.svg)](https://doi.org/10.5281/zenodo.16116302)
-- [論文 I: 基礎原理](papers/issb_delta_I.pdf)  
-- [Methods Paper](papers/issb_delta_methods.pdf)
