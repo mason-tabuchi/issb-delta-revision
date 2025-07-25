@@ -1,8 +1,8 @@
-name: Build-PDF                   # ★ この1行目含めコピペしてください
+name: Build-PDF
 
 on:
   push:
-    paths: ["docs/**/*.tex"]      # docs配下のTeXを変更したら実行
+    paths: ["docs/**/*.tex"]
   workflow_dispatch:
 
 jobs:
@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4   # ① チェックアウト
+    - uses: actions/checkout@v4
 
-    - name: Compile LaTeX         # ② LaTeXビルド
+    - name: Compile LaTeX
       uses: xu-cheng/latex-action@v3
       with:
-        root_file: docs/main.tex  #   ←必ず存在するパス
+        root_file: docs/main.tex
 
-    - name: Upload PDF            # ③ PDFをArtifactsへ
+    - name: Upload PDF
       uses: actions/upload-artifact@v4
       with:
         name: main-pdf
