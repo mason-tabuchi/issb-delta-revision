@@ -71,63 +71,63 @@ framework suitable for peer-review submission.
 \newpage
 
 % ==========================================================
-\section{Introduction}
-\label{sec:intro}
+%\section{Introduction}
+%\label{sec:intro}
 
-ダークエネルギーの起源を**力学的に**説明する理論として  
-iSSB-ΔTheory は\cite{Tabuchi2025_I,Tabuchi2025_X}  
-以下の 3 つの柱を持つ：
-\begin{enumerate}[label=\Roman*.]
-  \item Δ場による自己対称性破れ（iSSB）  
-  \item 非可換履歴時間 $\tau$ と情報密度
-  \item トポロジカル保存則
-\end{enumerate}
-本稿では査読者からの主要指摘に応じ、  
-\begin{itemize}
-  \item \S\ref{sec:action} で Einstein–Hilbert + Δ場の\textbf{完全作用}を提示
-  \item \S\ref{sec:loop} で $\kappa(H)$ の 1-loop 導出と数値評価
-  \item \S\ref{sec:mcmc} で MCMC による\textbf{観測フィット}
-\end{itemize}
-を順に示す。
+%ダークエネルギーの起源を**力学的に**説明する理論として  
+%iSSB-ΔTheory は\cite{Tabuchi2025_I,Tabuchi2025_X}  
+%以下の 3 つの柱を持つ：
+%\begin{enumerate}[label=\Roman*.]
+%  \item Δ場による自己対称性破れ（iSSB）  
+%  \item 非可換履歴時間 $\tau$ と情報密度
+%  \item トポロジカル保存則
+%\end{enumerate}
+%本稿では査読者からの主要指摘に応じ、  
+%\begin{itemize}
+%  \item \S\ref{sec:action} で Einstein–Hilbert + Δ場の\textbf{完全作用}を提示
+%  \item \S\ref{sec:loop} で $\kappa(H)$ の 1-loop 導出と数値評価
+%  \item \S\ref{sec:mcmc} で MCMC による\textbf{観測フィット}
+%\end{itemize}
+%を順に示す。
 
 % ==========================================================
-\section{Full Covariant Action}
-\label{sec:action}
+%\section{Full Covariant Action}
+%\label{sec:action}
 
-作用は
-\begin{align}
-  S &= \int d^4x \,\sqrt{-g}\,\Bigl[
-        \frac{\Mpl^{2}}{2} R
-      - \frac12 g^{\mu\nu}\partial_\mu \Phi \partial_\nu \Phi
-      - V(\Phi)
-      - \frac{\xi}{2} R \Phi^2
-    \Bigr], \label{eq:action}
-\end{align}
-where $V(\Phi)=\frac{\lambda}{4}\Phi^4 + \frac{m^2}{2}\Phi^2$.
-変分より…
+%作用は
+%\begin{align}
+%  S &= \int d^4x \,\sqrt{-g}\,\Bigl[
+%        \frac{\Mpl^{2}}{2} R
+%      - \frac12 g^{\mu\nu}\partial_\mu \Phi \partial_\nu \Phi
+%      - V(\Phi)
+%      - \frac{\xi}{2} R \Phi^2
+%    \Bigr], \label{eq:action}
+%\end{align}
+%where $V(\Phi)=\frac{\lambda}{4}\Phi^4 + \frac{m^2}{2}\Phi^2$.
+%変分より…
 % （後続で action/lagrangian.tex から \input する方法も可）
 
 % ==========================================================
-\section{One-loop Effective Vacuum Term}
-\label{sec:loop}
+%\section{One-loop Effective Vacuum Term}
+%\label{sec:loop}
 % 簡潔な概要。詳細は loop/notebook.ipynb 参照。
 %\input{../loop/summary.tex} % 無ければ後で削除
-\input{../action/lagrangian.tex}
+%\input{../action/lagrangian.tex}
 
 % ==========================================================
-\section{Observational Constraints}
-\label{sec:mcmc}
+%\section{Observational Constraints}
+%\label{sec:mcmc}
 
-Cobaya 設定ファイル \texttt{mcmc/config\_planck.yaml} を用い、
-Planck2018 + BAO で
-\[
-  w(z) = w_0 + w_a (1-a)
-\]
-のパラメータ空間を探索した結果…
+%Cobaya 設定ファイル \texttt{mcmc/config\_planck.yaml} を用い、
+%Planck2018 + BAO で
+%\[
+%  w(z) = w_0 + w_a (1-a)
+%\]
+%のパラメータ空間を探索した結果…
 
 % ==========================================================
-\section{Conclusion}
-本稿では…
+%\section{Conclusion}
+%本稿では…
 
 % ==========================================================
 \bibliographystyle{unsrt}
