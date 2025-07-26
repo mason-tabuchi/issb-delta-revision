@@ -1,27 +1,16 @@
 % action/lagrangian.tex
-%--------------------------------------------
 \section{Full Covariant Action}\label{sec:action}
 
-% プランク質量 M_\text{Pl} や Δ場 Φ を定義
 \newcommand{\Mpl}{M_{\mathrm{Pl}}}
 \newcommand{\PhiField}{\Phi}
 
-%----------- 本作用 -----------
 \begin{align}
-S &= S_{\text{EH}} + S_{\Phi} ,                                         \\
-S_{\text{EH}} &= \frac{\Mpl^{2}}{2}\int d^{4}x\sqrt{-g}\,R ,            \\
+S &= S_{\text{EH}} + S_{\Phi}, \\
+S_{\text{EH}} &= \frac{\Mpl^{2}}{2}\int d^{4}x\sqrt{-g}\,R, \\
 S_{\Phi} &= \int d^{4}x\sqrt{-g}\Bigl[
-      -\frac12\,g^{\mu\nu}\partial_\mu\PhiField\,\partial_\nu\PhiField  % 運動項
-      - V(\PhiField)                                                    % ポテンシャル
-      - \frac{\xi}{2} R\PhiField^{2}                                    % 非最小結合
-    \Bigr] ,                                                            \\
-V(\PhiField) &= \frac{\lambda}{4}\,\PhiField^{4} + \frac{m^{2}}{2}\,\PhiField^{2}.
+  -\frac12\,g^{\mu\nu}\partial_\mu\PhiField\,\partial_\nu\PhiField
+  - V(\PhiField) - \frac{\xi}{2} R\PhiField^{2}
+\Bigr], \\
+V(\PhiField) &= \frac{\lambda}{4}\PhiField^{4} + \frac{m^{2}}{2}\PhiField^{2}.
 \end{align}
-
-\paragraph{TODO.}
-\begin{itemize}
-  \item $\xi R\Phi^{2}$ を残すか ($\xi=0$ でも可)。
-  \item $\Delta$ 場を複数成分に拡張する場合は添字を付ける。
-  \item 変分計算は `action/variation.tex` に分離予定。
-\end{itemize}
-%--------------------------------------------
+% TODO: ξ の要否・多成分化など
