@@ -21,9 +21,12 @@
 \usepackage{siunitx}                 % 単位
 \usepackage{enumitem}                % 箇条書きカスタム
 \usepackage{fontspec}          % ←追加
-\setmainfont{Noto Serif}       % ラテン+ギリシャ
-\newfontfamily\jafont{Noto Serif CJK JP} % 日本語
-\setmonofont{Noto Sans Mono}
+% ---------- フォント ----------
+\usepackage{fontspec}
+\usepackage{xeCJK}           % 日本語用
+\setmainfont{TeX Gyre Pagella} % ラテン＋ギリシャ (Δ もOK)
+\setCJKmainfont{IPAexMincho}  % 日本語 (どの文字も表示可)
+
 
 %\DeclareUnicodeCharacter{0394}{\Delta} % ギリシャ大文字Δ
 
@@ -108,7 +111,7 @@ where $V(\Phi)=\frac{\lambda}{4}\Phi^4 + \frac{m^2}{2}\Phi^2$.
 \section{One-loop Effective Vacuum Term}
 \label{sec:loop}
 % 簡潔な概要。詳細は loop/notebook.ipynb 参照。
-\input{../loop/summary.tex} % 無ければ後で削除
+%\input{../loop/summary.tex} % 無ければ後で削除
 
 % ==========================================================
 \section{Observational Constraints}
