@@ -1,0 +1,27 @@
+% action/variation.tex
+\subsection{Field Equations via Variation}
+
+\providecommand{\Mpl}{M_{\mathrm{Pl}}} % main.tex で定義済みなら上書きされない
+\providecommand{\PhiField}{\Phi}
+
+%--- xAct 用マクロ --------------------------
+\newcommand{\Var}[1]{\delta\!\left[#1\right]} % 変分記号
+%-------------------------------------------
+
+\paragraph{Metric variation.}
+\begin{align}
+\Var{S_{\text{EH}}}
+  &= \frac{\Mpl^{2}}{2} \int d^{4}x\sqrt{-g}\,
+     \Bigl(G_{\mu\nu}-\frac12 g_{\mu\nu}R\Bigr)\,\delta g^{\mu\nu},
+\end{align}
+
+\paragraph{Scalar variation.}
+\begin{align}
+\Var{S_{\Phi}}
+  &= \int d^{4}x\sqrt{-g}\,
+     \Bigl[\Box\PhiField - V'(\PhiField) + \xi R\PhiField\Bigr]\delta\PhiField.
+\end{align}
+
+\paragraph{TODO.}  
+- xAct の `xPert.m` をロードし、上記式を自動導出するスクリプトを追記。  
+- $\xi=0$ の場合は対応箇所を削除。
